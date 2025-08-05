@@ -31,7 +31,8 @@
           "valueType": "string",
           "name": "title",
           "label": "Title",
-          "placeholder": "Enter your title here..."
+          "placeholder": "Enter your title here...",
+          "key-value": true
         },
         {
           "component": "select",
@@ -45,27 +46,31 @@
             { "name": "h4", "value": "h4" },
             { "name": "h5", "value": "h5" },
             { "name": "h6", "value": "h6" }
-          ]
+          ],
+          "key-value": true
         },
         {
           "component": "aem-content",
           "name": "linkURL",
           "description": "Link to a content page, external URL or page anchor.",
           "label": "Link",
-          "valueType": "string"
+          "valueType": "string",
+          "key-value": true
         },
         {
           "component": "boolean",
           "label": "Open link in new tab",
           "description": "If checked the link will be opened in a new browser tab.",
           "name": "linkTarget",
-          "valueType": "boolean"
+          "valueType": "boolean",
+          "key-value": true
         },
         {
           "component": "text",
           "valueType": "string",
           "name": "id",
-          "label": "ID"
+          "label": "ID",
+          "key-value": true
         },
         {
           "component": "tab",
@@ -92,7 +97,8 @@
               "name": "Blue",
               "value": "bg-blue"
             }
-          ]
+          ],
+          "key-value": true
         }
       ]
     }
