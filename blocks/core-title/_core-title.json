@@ -10,7 +10,8 @@
             "template": {
               "name": "Core Title",
               "model": "core-title",
-              "type": "h1"
+              "type": "h1",
+              "key-value": true
             }
           }
         }
@@ -31,8 +32,7 @@
           "valueType": "string",
           "name": "title",
           "label": "Title",
-          "placeholder": "Enter your title here...",
-          "key-value": true
+          "placeholder": "Enter your title here..."
         },
         {
           "component": "select",
@@ -46,31 +46,27 @@
             { "name": "h4", "value": "h4" },
             { "name": "h5", "value": "h5" },
             { "name": "h6", "value": "h6" }
-          ],
-          "key-value": true
+          ]
         },
         {
           "component": "aem-content",
           "name": "linkURL",
           "description": "Link to a content page, external URL or page anchor.",
           "label": "Link",
-          "valueType": "string",
-          "key-value": true
+          "valueType": "string"
         },
         {
           "component": "boolean",
           "label": "Open link in new tab",
           "description": "If checked the link will be opened in a new browser tab.",
           "name": "linkTarget",
-          "valueType": "boolean",
-          "key-value": true
+          "valueType": "boolean"
         },
         {
           "component": "text",
           "valueType": "string",
           "name": "id",
-          "label": "ID",
-          "key-value": true
+          "label": "ID"
         },
         {
           "component": "tab",
@@ -97,8 +93,7 @@
               "name": "Blue",
               "value": "bg-blue"
             }
-          ],
-          "key-value": true
+          ]
         }
       ]
     }

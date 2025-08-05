@@ -137,7 +137,8 @@
                 "template": {
                   "name": "Core Title",
                   "model": "core-title",
-                  "type": "h1"
+                  "type": "h1",
+                  "key-value": true
                 }
               }
             }
