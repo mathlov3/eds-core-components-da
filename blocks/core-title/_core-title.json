@@ -10,8 +10,7 @@
             "template": {
               "name": "Core Title",
               "model": "core-title",
-              "type": "h1",
-              "key-value": true
+              "type": "h1"
             }
           }
         }
