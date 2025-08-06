@@ -1,4 +1,4 @@
-import { getSimpleRowContent } from '../../scripts/utils.js';
+import { getSimpleRowContent, StringUtils } from '../../scripts/utils.js';
 
 const AVAILABLE_HEADER_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
@@ -34,19 +34,19 @@ const getLinkElement = (link, target, text, id) => {
   linkElement.setAttribute('href', link);
   linkElement.setAttribute('target', target);
   linkElement.textContent = text;
-  if (id) {
-    linkElement.setAttribute('id', id);
+  if (id && !!id.trim()) {
+    linkElement.setAttribute('id', id.trim());
   }
   return linkElement;
 };
 
 export default function decorate(block) {
   const rows = [...block.children];
-  const text = getSimpleRowContent(rows[0]);
-  const headerTag = getSimpleRowContent(rows[1]);
+  const text = StringUtils.trimToEmpty(getSimpleRowContent(rows[0]));
+  const headerTag = StringUtils.trimToEmpty(getSimpleRowContent(rows[1]));
   const link = getLinkFromRow(rows[2]);
-  const target = getSimpleRowContent(rows[3]) === 'true' ? '_blank' : '_self';
-  const id = getSimpleRowContent(rows[4]);
+  const target = StringUtils.trimToEmpty(getSimpleRowContent(rows[3])) === 'true' ? '_blank' : '_self';
+  const id = StringUtils.trimToEmpty(getSimpleRowContent(rows[4]));
 
   const root = getRootRag();
   const header = getHeaderElement(headerTag);
