@@ -258,20 +258,7 @@
         "label": "Block classes",
         "valueType": "string",
         "multi": "true",
-        "options": [
-          {
-            "name": "Red",
-            "value": "bg-red"
-          },
-          {
-            "name": "Green",
-            "value": "bg-green"
-          },
-          {
-            "name": "Blue",
-            "value": "bg-blue"
-          }
-        ]
+        "options": []
       }
     ]
   },
