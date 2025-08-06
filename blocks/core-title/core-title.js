@@ -1,4 +1,8 @@
-import { getSimpleRowContent, StringUtils } from '../../scripts/utils.js';
+import {
+  getSimpleRowContent,
+  LinkUtils,
+  StringUtils,
+} from '../../scripts/utils.js';
 
 const AVAILABLE_HEADER_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
@@ -9,8 +13,6 @@ const getLinkFromRow = (row) => {
   }
   return link.getAttribute('href');
 };
-
-const isLinkValid = (link) => !!link;
 
 const getRootRag = () => {
   const titleRootTag = document.createElement('div');
@@ -28,18 +30,6 @@ const getHeaderElement = (tagName = '') => {
   return header;
 };
 
-const getLinkElement = (link, target, text, id) => {
-  const linkElement = document.createElement('a');
-  linkElement.classList.add('cmp-title__link');
-  linkElement.setAttribute('href', link);
-  linkElement.setAttribute('target', target);
-  linkElement.textContent = text;
-  if (id && !!id.trim()) {
-    linkElement.setAttribute('id', id.trim());
-  }
-  return linkElement;
-};
-
 export default function decorate(block) {
   const rows = [...block.children];
   const text = StringUtils.trimToEmpty(getSimpleRowContent(rows[0]));
@@ -51,8 +41,8 @@ export default function decorate(block) {
   const root = getRootRag();
   const header = getHeaderElement(headerTag);
   root.append(header);
-  if (isLinkValid(link)) {
-    header.append(getLinkElement(link, target, text, id));
+  if (LinkUtils.isLinkValid(link)) {
+    header.append(LinkUtils.createLinkElement(link, target, text, id));
   } else {
     header.textContent = text;
   }

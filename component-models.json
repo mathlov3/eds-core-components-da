@@ -180,6 +180,101 @@
     ]
   },
   {
+    "id": "core-teaser",
+    "fields": [
+      {
+        "component": "tab",
+        "label": "Links",
+        "name": "linksTab"
+      },
+      {
+        "component": "aem-content",
+        "name": "linkURL",
+        "description": "Link",
+        "label": "Link",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "label": "Open link in new tab",
+        "description": "If checked the link will be opened in a new browser tab.",
+        "name": "opensNewTab",
+        "valueType": "boolean"
+      },
+      {
+        "component": "richtext",
+        "name": "actions",
+        "value": "",
+        "label": "Call to actions",
+        "description": "Links which will be displayed as call to actions.",
+        "valueType": "string"
+      },
+      {
+        "component": "tab",
+        "label": "Text",
+        "name": "textTab"
+      },
+      {
+        "component": "text",
+        "name": "pretitle",
+        "label": "Pretitle"
+      },
+      {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
+        "component": "text",
+        "name": "description",
+        "label": "Description"
+      },
+      {
+        "component": "text",
+        "name": "id",
+        "label": "ID"
+      },
+      {
+        "component": "tab",
+        "label": "Asset",
+        "name": "assetTab"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt",
+        "value": ""
+      },
+      {
+        "component": "tab",
+        "label": "Styles",
+        "name": "stylesTab"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Block classes",
+        "valueType": "string",
+        "multi": "true",
+        "options": [
+          {
+            "name": "Hero",
+            "value": "hero"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "core-title",
     "fields": [
       {
