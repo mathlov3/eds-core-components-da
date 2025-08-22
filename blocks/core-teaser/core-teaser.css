@@ -1,3 +1,16 @@
 .cmp-teaser {
-    color: var(--text-color);
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.cmp-teaser__image picture {
+    display: block;
+    height: auto;
+    font-size: 0;
+}
+
+.cmp-teaser__image img {
+    width: 100%;
+    height: auto;
 }

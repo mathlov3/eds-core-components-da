@@ -9,7 +9,7 @@ import {
   waitForFirstImage,
   loadSection,
   loadSections,
-  loadCSS,
+  loadCSS, loadComponentTree,
 } from './aem.js';
 
 /**
@@ -123,6 +123,11 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
+  const aside = doc.querySelector('aside.component-tree-aside');
+  if (aside) {
+    loadCSS(`${window.hlx.codeBasePath}/styles/templates/component-page.css`);
+    loadComponentTree(aside);
+  }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();

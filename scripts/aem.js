@@ -348,6 +348,11 @@ function decorateTemplateAndTheme() {
   if (template) addClasses(document.body, template);
   const theme = getMetadata('theme');
   if (theme) addClasses(document.body, theme);
+  if (template === 'component-page') {
+    const aside = document.createElement('aside');
+    aside.classList.add('component-tree-aside');
+    document.querySelector('main').prepend(aside);
+  }
 }
 
 /**
@@ -634,6 +639,13 @@ async function loadFooter(footer) {
   return loadBlock(footerBlock);
 }
 
+async function loadComponentTree(aside) {
+  const componentTreeBlock = buildBlock('component-tree', '');
+  aside.append(componentTreeBlock);
+  decorateBlock(componentTreeBlock);
+  return loadBlock(componentTreeBlock);
+}
+
 /**
  * Wait for Image.
  * @param {Element} section section element
@@ -713,4 +725,5 @@ export {
   toClassName,
   waitForFirstImage,
   wrapTextNodes,
+  loadComponentTree,
 };
