@@ -1,6 +1,5 @@
 import {
   getBlockRows,
-  getBooleanRowContent,
   getLinkTags,
   getPictureTag,
   getTrimmedSimpleRowContent,
@@ -24,13 +23,12 @@ const getTeaserData = (block) => {
   const data = {};
   const rows = getBlockRows(block);
   data.linkUrl = getTrimmedSimpleRowContent(rows[0]);
-  data.opensNewTab = getBooleanRowContent(rows[1]);
-  data.actions = getLinkTags(rows[2]);
-  data.pretitle = getTrimmedSimpleRowContent(rows[3]);
-  data.title = getTrimmedSimpleRowContent(rows[4]);
-  data.description = getTrimmedSimpleRowContent(rows[5]);
-  data.id = getTrimmedSimpleRowContent(rows[6]);
-  data.image = getPictureTag(rows[7]);
+  data.image = getPictureTag(rows[1]);
+  data.pretitle = getTrimmedSimpleRowContent(rows[2]);
+  // eslint-disable-next-line prefer-destructuring
+  data.title = rows[3];
+  data.description = getTrimmedSimpleRowContent(rows[4]);
+  data.actions = getLinkTags(rows[5]);
   return data;
 };
 
@@ -45,15 +43,17 @@ const appendPretitleToContent = (contentElement, data) => {
 };
 
 const appendTitleToContent = (contentElement, data) => {
-  if (!data.title) {
+  if (!data.title.textContent.trim()) {
     return;
   }
-  const titleElement = document.createElement('h2');
+  const titleElement = data.title.children[0].children[0].cloneNode(true);
+  const titleText = titleElement.textContent;
+  titleElement.textContent = '';
   titleElement.classList.add('cmp-teaser__title');
   if (LinkUtils.isLinkValid(data.linkUrl)) {
-    titleElement.append(LinkUtils.createLinkElement(data.linkUrl, data.opensNewTab ? '_blank' : '_self', data.title, undefined));
+    titleElement.append(LinkUtils.createLinkElement(data.linkUrl, '_self', titleText, undefined));
   } else {
-    titleElement.textContent = data.title;
+    titleElement.innerHTML = titleText;
   }
   contentElement.append(titleElement);
 };
