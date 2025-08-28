@@ -1,24 +1,37 @@
 main {
-    display: grid;
-    grid-template-columns: minmax(16px, 1fr) 300px auto minmax(16px, 1fr);
-    gap: 16px;
-    max-width: 1400px;
-    margin: 0 auto; /* centers the whole layout */
+    margin: 0 auto;
+    background: #fafafa;
 }
 
-
-header { grid-area: header; background:#ddd; padding:1rem; }
-aside  { grid-area: aside;  background:#eee; padding:1rem; }
-main   { grid-area: main;   background:#fafafa; padding:1rem; }
-footer { grid-area: footer; background:#ddd; padding:1rem; }
-
-aside {
-    grid-row: 1 / span 10;
-    width: 300px;
-    grid-column: 2;
+header {
+    background: #ddd;
 }
 
-main > div {
-    grid-column: 3;
-    box-sizing: border-box;
+footer {
+    background: #ddd;
+}
+
+@media (width >= 900px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 300px auto 1fr;
+        gap: 16px;
+        max-width: 1400px;
+    }
+
+    aside {
+        background: #eee;
+        padding: 1rem;
+        grid-row: 1 / span 10;
+        width: 300px;
+        grid-column: 2;
+    }
+
+    main > div {
+        grid-column: 3;
+    }
+}
+
+main > div.section {
+    margin: 0;
 }

@@ -663,6 +663,24 @@ async function waitForFirstImage(section) {
   });
 }
 
+const assignCssVariable = (htmlElement, variableName, variableValue) => {
+  if (!variableValue) {
+    return;
+  }
+  htmlElement.style.setProperty(variableName, variableValue);
+};
+
+const processSectionStyles = async (section) => {
+  const { dataset } = section;
+  const desktopColumns = dataset.desktopColumns || '1';
+  const mobileColumns = dataset.mobileColumns || desktopColumns;
+  assignCssVariable(section, '--desktop-section-columns', desktopColumns);
+  assignCssVariable(section, '--mobile-section-columns', mobileColumns);
+  if (section.classList.contains('desktop-grid-view') || section.classList.contains('mobile-grid-view')) {
+    await loadCSS('/styles/sections/grid.css');
+  }
+};
+
 /**
  * Loads all blocks in a section.
  * @param {Element} section The section element
@@ -678,6 +696,7 @@ async function loadSection(section, loadCallback) {
       await loadBlock(blocks[i]);
     }
     if (loadCallback) await loadCallback(section);
+    await processSectionStyles(section);
     section.dataset.sectionStatus = 'loaded';
     section.style.display = null;
   }

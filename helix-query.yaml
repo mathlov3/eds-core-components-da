@@ -17,3 +17,6 @@ indices:
       template:
         select: head > meta[name="template"]
         value: attribute(el, "content")
+      title:
+        select: head > title
+        value: textContent(el)

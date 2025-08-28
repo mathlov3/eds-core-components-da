@@ -1,13 +1,22 @@
 :root {
     /* Color Theme Swatches in Hex */
-    --color-bg: #fff;
-    --color-bg-soft: #1F2833;
-    --color-text: #000;
-    --color-main: #6A0DAD;   /* Main Plum – primary brand color */
-    --color-dark: #4B0082;   /* Deep Plum – dark backgrounds, strong contrast */
-    --color-light: #E6D6F5;  /* Soft Lilac – light neutral for backgrounds */
-    --color-accent: #c78aff; /* Bright Violet – accents, hover states */
-    --color-highlight: #B84CCB; /* Pink Plum – highlights, secondary elements */
+    --color-bg: #FAF8FB;        /* Light background */
+    --color-text: #2E2E38;      /* Primary text */
+
+    /* Base Colors */
+    --color-primary: #5f00bf;   /* Plum */
+    --color-primary-light: #7501e4;   /* Plum */
+    --color-accent: #eddcff;    /* Softer plum accent */
+
+    /* Neutral Palette */
+    --color-surface: #fff;   /* Card / surface */
+    --color-border: #E6DCEC;    /* Soft borders */
+    --color-text-muted: #6A5E70; /* Secondary text */
+
+    /* States */
+    --color-success: #8BC48A;
+    --color-warning: #E8C074;
+    --color-error: #D57A7A;
 
     /* fonts */
     --body-font-family: fira-code, roboto-fallback, sans-serif;
@@ -24,10 +33,122 @@
     --heading-font-size-m: 27px;
     --heading-font-size-s: 24px;
     --heading-font-size-xs: 22px;
+    
+    /* spacings */
+    --space-unit: 4px;
+    --space-half: calc(0.5 * var(--space-unit));
+    --space-0: calc(0 * var(--space-unit));
+    --space-1: calc(1 * var(--space-unit));
+    --space-1-half: calc(1.5 * var(--space-unit));
+    --space-2: calc(2 * var(--space-unit));
+    --space-3: calc(3 * var(--space-unit));
+    --space-4: calc(4 * var(--space-unit));
+    --space-5: calc(5 * var(--space-unit));
+    --space-6: calc(6 * var(--space-unit));
+    --space-7: calc(7 * var(--space-unit));
+    --space-8: calc(8 * var(--space-unit));
+    --space-9: calc(9 * var(--space-unit));
+    --space-10: calc(10 * var(--space-unit));
+    --space-11: calc(11 * var(--space-unit));
+    --space-12: calc(12 * var(--space-unit));
+    --space-13: calc(13 * var(--space-unit));
+    --space-14: calc(14 * var(--space-unit));
+    --space-15: calc(15 * var(--space-unit));
+    --space-16: calc(16 * var(--space-unit));
+    --space-17: calc(17 * var(--space-unit));
+    --space-18: calc(18 * var(--space-unit));
+    --space-19: calc(19 * var(--space-unit));
+    --space-20: calc(20 * var(--space-unit));
+    --space-21: calc(21 * var(--space-unit));
+    --space-22: calc(22 * var(--space-unit));
+    --space-23: calc(23 * var(--space-unit));
+    --space-24: calc(24 * var(--space-unit));
+    --space-25: calc(25 * var(--space-unit));
+    --space-26: calc(26 * var(--space-unit));
+    --space-27: calc(27 * var(--space-unit));
+    --space-28: calc(28 * var(--space-unit));
+    --space-29: calc(29 * var(--space-unit));
+    --space-30: calc(30 * var(--space-unit));
+    --space-31: calc(31 * var(--space-unit));
+    --space-32: calc(32 * var(--space-unit));
+    --space-33: calc(33 * var(--space-unit));
+    --space-34: calc(34 * var(--space-unit));
+    --space-35: calc(35 * var(--space-unit));
+    --space-36: calc(36 * var(--space-unit));
+    --space-37: calc(37 * var(--space-unit));
+    --space-38: calc(38 * var(--space-unit));
+    --space-39: calc(39 * var(--space-unit));
+    --space-40: calc(40 * var(--space-unit));
+    --space-41: calc(41 * var(--space-unit));
+    --space-42: calc(42 * var(--space-unit));
+    --space-43: calc(43 * var(--space-unit));
+    --space-44: calc(44 * var(--space-unit));
+    --space-45: calc(45 * var(--space-unit));
+    --space-46: calc(46 * var(--space-unit));
+    --space-47: calc(47 * var(--space-unit));
+    --space-48: calc(48 * var(--space-unit));
+    --space-49: calc(49 * var(--space-unit));
+    --space-50: calc(50 * var(--space-unit));
+
+    /* Button Tokens */
+    --button-transition: ;
+    --button-background-color: var(--color-primary);
+    --button-text-color: var(--color-surface);
+    --button-background-color-hover: var(--color-primary-light);
+    --button-font-wight: 500;
+    --button-spacing: var(--space-2) var(--space-4);
+    --button-border-radius: var(--space-0);
+    --button-border-size: var(--space-half);
+    --button-border-style: solid;
+    --button-border-color: var(--color-primary);
+    --button-border-color-hover: var(--color-primary-light);
+
+    /* Button secondary tokens */
+    --button-background-color-secondary: var(--color-surface);
+    --button-background-color-hover-secondary: var(--color-accent);
+    --button-text-color-secondary: var(--color-primary);
 }
 
 * {
     box-sizing: border-box;
+}
+
+a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.button {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    padding: var(--button-spacing);
+    font-weight: var(--button-font-wight);
+    transition: var(--button-transition);
+    border-radius: var(--button-border-radius);
+    border: var(--button-border-size);
+    border-style: var(--button-border-style);
+    border-color: var(--button-border-color);
+    display: inline-block;
+    text-decoration: none;
+}
+
+a.button:hover {
+    background-color: var(--button-background-color-hover);
+    border-color: var(--button-border-color-hover);
+}
+
+a.button.secondary {
+    background-color: var(--button-background-color-secondary);
+    color: var(--button-text-color-secondary);
+    font-style: normal;
+}
+
+a.button.secondary:hover {
+    background-color: var(--button-background-color-hover-secondary);
 }
 
 body {
@@ -159,6 +280,9 @@ main img {
 /* sections */
 main > .section {
   margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
 }
 
 main > .section > div {
@@ -171,8 +295,14 @@ main > .section:first-of-type {
   margin-top: 0;
 }
 
+
+
 @media (width >= 900px) {
   main > .section > div {
     padding: 0 32px;
   }
+
+    main > .section {
+        display: block;
+    }
 }

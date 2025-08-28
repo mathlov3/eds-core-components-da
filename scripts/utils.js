@@ -1,6 +1,11 @@
 // eslint-disable-next-line
 export const StringUtils = {
   trimToEmpty: (str) => (str || '').trim(),
+  substringBeforeLast: (str, delimiter) => {
+    if (!delimiter) return str;
+    const index = str.lastIndexOf(delimiter);
+    return index === -1 ? str : str.substring(0, index);
+  },
 };
 
 export const LinkUtils = {

@@ -1,7 +1,18 @@
+:root {
+    --teaser-content-background-color: var(--color-accent, transparent);
+    --teaser-content-gap: var(--space-4);
+    --teaser-content-padding: var(--space-6);
+    --teaser-actions-gap: var(--space-2);
+}
+
 .cmp-teaser {
     position: relative;
     display: block;
     overflow: hidden;
+}
+
+.cmp-teaser * {
+    margin-block: 0;
 }
 
 .cmp-teaser__image picture {
@@ -13,4 +24,17 @@
 .cmp-teaser__image img {
     width: 100%;
     height: auto;
+}
+
+.cmp-teaser__content {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--teaser-content-background-color, transparent);
+    gap: var(--teaser-content-gap);
+    padding: var(--teaser-content-padding);
+}
+
+.cmp-teaser__action-container {
+    display: flex;
+    gap: var(--teaser-actions-gap);
 }
